@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: center;
+        }
+        video {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Streaming Service</h1>
+    </header>
+    <main>
+        <video id="screen" controls autoplay></video>
+        <script>
+            const video = document.getElementById('screen');
+            navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                })
+                .catch(error => {
+                    console.error("Error accessing screen: ", error);
+                });
+        </script>
+        <section>
+            <h2>Hotstar</h2>
+            <iframe src="https://www.hotstar.com" width="80%" height="600px" frameborder="0">
+                Your browser does not support iframes.
+            </iframe>
+
+            <h2>Available Streams</h2>
+            <ul>
+                <li>Stream 1</li>
+                <li>Stream 2</li>
+                <li>Stream 3</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Streaming Service</p>
+    </footer>
+</body>
+</html>
